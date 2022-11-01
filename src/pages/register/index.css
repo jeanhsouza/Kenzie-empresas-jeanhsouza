@@ -1,0 +1,29 @@
+.headerHomePage{    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.boxHeader{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.LogoImg{
+    width: 142px;
+    height: 15px;
+}
+
+@media (min-width: 900px){
+    .boxHeader{
+        flex-direction: row;
+    }
+
+    .LogoImg{
+        width: 203px;
+        height: 21px;
+    }
+
+    .boxHamb{
+        display: none;
+    }
+
+}

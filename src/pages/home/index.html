@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../styles/reset.css">
+        <link rel="stylesheet" href="../../styles/globalStyles.css">
+        <link rel="stylesheet" href="../../styles/buttons.css">
+        <link rel="stylesheet" href="../../styles/colors.css">
+        <link rel="stylesheet" href="../../styles/flex.css">
+        <link rel="stylesheet" href="../../styles/sizes.css">
+        <link rel="stylesheet" href="index.css">
+        <script defer type="module" src="./index.js"></script>
+        <title>Kenzie Empresas - HomePage</title>
+    </head>
+    <body>
+        <header class="headerHomePage">
+            <div class="boxHeader container flex flex-col justify-between gap2">
+                <div class="logo flex justify-between items-center">
+                    <img src="../../assets/img/logo.svg" alt="" class="LogoImg">
+                    <img src="../../assets/img/img_hamb.svg" alt="" class="boxHamb">                    
+                </div>
+                
+                <nav class="navBoxHeader flex justify-center gap2">
+                    <button class="btnlogin btn">Login</button>
+                    <button class="btnRegister btn">Cadastro</button>
+                </nav>  
+            </div>            
+        </header>
+        <main class="mainHomePage flex justify-between container">
+            <section class="sideImg">
+                <img src="../../assets/img/img_home.svg" alt="">
+            </section>
+            <section class="sideSectors flex flex-col bg-grey6">
+                <div class="headerSectors flex items-center">
+                    <select name="" id="" class="selectSectors btn2 ">
+                        <option value="">Selecionar por Setor</option>                        
+                    </select>
+                </div>
+                <ul class="listSector flex gap2">
+                    <!-- <li class="itemSector bg-grey7">
+                        <h3 class="itemTitle">Empresa</h3>
+                        <p class="itemText">10 Horas</p>
+                        <span class="itemTag">Setor</span>
+                    </li> -->
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>
