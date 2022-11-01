@@ -12,6 +12,19 @@
     height: 15px;
 }
 
+.mainLogin{
+    background-image: url(../../assets/img/img_bg.svg);
+    height: 100vh;
+}
+
+.boxLogin{
+    width: 80%;
+}
+
+.spanOr{
+    text-align: center;
+}
+
 @media (min-width: 900px){
     .boxHeader{
         flex-direction: row;
@@ -24,6 +37,11 @@
 
     .boxHamb{
         display: none;
+    }
+
+    .boxLogin{
+        width: 506px;
+        height: fit-content;
     }
 
 }

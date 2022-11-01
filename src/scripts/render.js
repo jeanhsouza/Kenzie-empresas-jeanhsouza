@@ -17,9 +17,9 @@ export async function renderAllCompanies(){
 
     companies.forEach(elem => {
         listSector.insertAdjacentHTML("beforeend", `
-        <li class="itemSector bg-grey7">
-            <h3 class="itemTitle">${elem.name}</h3>
-            <p class="itemText">${elem.opening_hours}</p>
+        <li class="itemSector bg-grey7 flex flex-col gap3 pad-2">
+            <h3 class="itemTitle font3">${elem.name}</h3>
+            <p class="itemText font4">Abre às ${elem.opening_hours}h</p>
             <span class="itemTag">${elem.sectors.description}</span>
         </li>
     `)
@@ -34,9 +34,9 @@ export async function renderCompanies(sector){
 
     companies.forEach(elem => {
         listSector.insertAdjacentHTML("beforeend", `
-        <li class="itemSector bg-grey7">
-            <h3 class="itemTitle">${elem.name}</h3>
-            <p class="itemText">${elem.opening_hours}</p>
+        <li class="itemSector bg-grey7 flex flex-col gap3 pad-2">
+            <h3 class="itemTitle font3">${elem.name}</h3>
+            <p class="itemText font4">Abre às ${elem.opening_hours}h</p>
             <span class="itemTag">${elem.sectors.description}</span>
         </li>
     `)

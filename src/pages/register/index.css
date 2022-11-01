@@ -12,6 +12,19 @@
     height: 15px;
 }
 
+.mainRegister{
+    background-image: url(../../assets/img/img_bg.svg);
+    height: 100%;
+}
+
+.boxRegister{
+    width: 80%;
+}
+
+.AcessHome{
+    text-align: center;
+}
+
 @media (min-width: 900px){
     .boxHeader{
         flex-direction: row;
@@ -24,6 +37,11 @@
 
     .boxHamb{
         display: none;
+    }
+
+    .boxRegister{
+        width: 506px;
+        height: 519px;
     }
 
 }
