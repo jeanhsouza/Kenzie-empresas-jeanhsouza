@@ -1,0 +1,17 @@
+.input1{
+    font-family: Inter,sans-serif;
+    padding: 10px 16px;
+    background: var(--gray800);
+    color: var(--gray100);
+    border: 1px solid var(--gray600);
+    border-radius: 4px;    
+}
+
+.input1:focus{
+    outline: 1px solid var(--gray100);
+    background: var(--gray800);
+}
+
+.errorInput{
+    outline: 1px solid var(--alert100);
+}

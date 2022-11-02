@@ -1,0 +1,33 @@
+.modalBg{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(30, 30, 30, 0.5);
+}
+
+.modalBox{
+    position: relative;
+    height: fit-content;
+    background: var(--gray700);
+    border-radius: 8px;
+    padding: 32px 24px;
+}
+
+.modalClose{
+    position: absolute;
+    top: 30px;
+    right: 28px;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--gray400);
+    background-color: var(--gray600);
+    border-radius: 8px;
+    cursor:pointer;
+}
+
+.contentPost{
+    resize: none;
+    height: 120px;
+}

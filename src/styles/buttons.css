@@ -1,0 +1,49 @@
+.btn{
+    padding: 10px 36px;
+    border: 1px solid var(--brand100);
+    color: var(--brand100);
+    background-color: transparent;
+}
+
+.btn:hover{
+    padding: 10px 36px;
+    border: 1px solid var(--brand100);
+    background-color: var(--brand100);
+    color: var(--gray700);
+}
+
+.btn2{
+    padding: 10px 0px;
+    border: 1px solid var(--brand100);
+    background-color: var(--brand100);
+    color: var(--gray700);
+}
+
+.btn3{
+    padding: 10px 36px;
+    border: 1px solid var(--sucess100);
+    background-color: var(--sucess100);
+    color: var(--gray700);
+}
+
+.btn4{
+    padding: 10px 36px;
+    border: 1px solid var(--alert100);
+    background-color: transparent;
+    color: var(--alert100);
+}
+
+.spinner {
+    border: 4px dotted rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-grey-7);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }

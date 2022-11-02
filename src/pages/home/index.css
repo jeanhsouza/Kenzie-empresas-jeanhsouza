@@ -1,0 +1,84 @@
+.headerHomePage{    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.boxHeader{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.mainHomePage{
+    margin-top: 4%;
+}
+
+.LogoImg{
+    width: 142px;
+    height: 15px;
+}
+
+.sideImg{
+    display: none;
+}
+
+.sideSectors{
+    width: 100%;
+}
+
+.selectSectors {
+    width: 100%;
+    text-align: center;
+    outline: none;
+}
+
+.itemSector{
+    min-width: 241px;
+    min-height: 211px;
+    border-bottom: 1px solid var(--brand100);
+}
+
+.listSector{
+    overflow-y: auto;
+    padding: 25px;
+}
+
+
+@media (min-width: 900px){
+    .boxHeader{
+        flex-direction: row;
+    }
+
+    .LogoImg{
+        width: 203px;
+        height: 21px;
+    }
+
+    .boxHamb{
+        display: none;
+    }
+
+    .mainHomePage{
+        max-height: 743px;
+    }
+
+    .sideImg{
+        display: flex;
+        width: 45%;
+    }
+
+    .sideSectors{
+        width: 50%;
+    }
+
+    .listSector{
+        overflow: unset;
+        overflow-x: auto;
+        flex-direction: column;
+    }
+
+    .itemSector{
+        min-width: 489px;
+        min-height: 135px;
+    }
+
+    
+}

@@ -1,0 +1,75 @@
+.bg-brand1{
+    background-color: var(--brand100);
+}
+
+.bg-brand2{
+    background-color: var(--brand200);
+}
+
+.bg-grey1{
+    background-color: var(--gray100);
+}
+
+.bg-grey6{
+    background-color: var(--gray600);
+}
+
+.bg-grey3{
+    background-color: var(--gray300);
+}
+
+.bg-grey7{
+    background-color: var(--gray700);
+}
+
+.bg-grey8{
+    background-color: var(--gray900);
+}
+
+.text-brand1{
+    color: var(--brand100);
+}
+
+.text-brand2{
+    color: var(--brand200);
+}
+
+.text-grey1{
+    color: var(--gray100);
+}
+
+.text-grey2{
+    color: var(--gray200);
+}
+
+.text-grey3{
+    color: var(--gray300);
+}
+
+.text-grey4{
+    color: var(--gray400);
+}
+
+.text-grey5{
+    color: var(--gray500);
+}
+
+.text-grey6{
+    color: var(--gray600);
+}
+
+.text-grey7{
+    color: var(--gray700);
+}
+
+.text-alert1{
+    color: var(--alert100);
+}
+
+.text-success{
+    color: var(--sucess100);
+}
+
+.border-grey6{
+    border: 1px solid var(--gray600);
+}
