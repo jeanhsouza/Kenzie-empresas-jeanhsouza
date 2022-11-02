@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../../styles/sizes.css">
         <link rel="stylesheet" href="../../styles/inputs.css">
         <link rel="stylesheet" href="../../styles/fonts.css">
+        <link rel="stylesheet" href="../../styles/modal.css">
         <link rel="stylesheet" href="index.css">
         <script defer type="module" src="./index.js"></script>
         <title>Kenzie Empresas - HomePage</title>
@@ -23,14 +24,49 @@
                     <img src="../../assets/img/logo.svg" alt="" class="LogoImg">                   
                 </div>                
                 <nav class="navBoxHeader flex justify-center gap2">
-                    <button class="btnHome btn">Home</button>
-                    <button class="btnLogin btn">Login</button>
+                    <button class="btnLogout btn">Logout</button>
                 </nav>  
             </div>            
         </header>
-        <main class="mainRegister flex items-center justify-center">
-           <h1>Estou na página de Administrador</h1>
-            
+        <main class="mainDashAdmin container mg-bot1">
+           <section class="departaments mg-top1">
+            <div class="departHeader flex justify-between mg-bot1">
+                <h2 class="departTitle font2">Departamentos</h2>
+                <select name="" id="" class="departSelect">
+                    <option value="">Selecionar Empresa</option>
+                </select>
+                <button class="btnCreate">Criar</button>
+            </div>
+            <ul class="departList bg-grey6 flex wrap justify-between gap2">
+                <!-- <li class="departItem bg-grey7">
+                    <h3 class="departItemTitle">Department Name</h3>
+                    <p class="departDescription">Department Description</p>
+                    <p class="departCompanyName">Company Name</p>
+                    <div class="departNav">
+                        <img src="../../assets/img/eye_blue.svg" alt="" class="departView">
+                        <img src="../../assets/img/pen_black.svg" alt="" class="departEdit">
+                        <img src="../../assets/img/trash.svg" alt="" class="departDelete">
+                    </div>
+                </li> -->
+                
+            </ul>
+           </section>
+            <section class="divUsersRegister mg-top1">
+                <div class="userHeader mg-bot1">
+                    <h2 class="userTitle font2 flex justify-center">Usuários cadastrados</h2>
+                </div>
+                <ul class="userList bg-grey6 flex wrap justify-between gap2">
+                    <!-- <li class="userItem bg-grey7">
+                        <h3 class="userItemTitle">Username</h3>
+                        <p class="userDescription">Pleno</p>
+                        <p class="userCompanyName">Company Name</p>
+                        <div class="userNav">
+                            <img src="../../assets/img/pen_blue.svg" alt="" class="userEdit">
+                            <img src="../../assets/img/trash.svg" alt="" class="userDelete">
+                        </div>
+                    </li> -->
+                </ul>
+            </section>
         </main>
     </body>
 </html>

@@ -8,9 +8,8 @@
 
 .modalBox{
     position: relative;
-    width: 800px;
     height: fit-content;
-    background: var(--gray900);
+    background: var(--gray700);
     border-radius: 8px;
     padding: 32px 24px;
 }

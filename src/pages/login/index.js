@@ -2,7 +2,11 @@ import { login } from "../../scripts/requests.js";
 
 const btnHome = document.querySelector(".btnHome");
 const btnRegister = document.querySelector(".btnRegister")
+const AcessRegister = document.querySelector(".AcessRegister")
 
+AcessRegister.addEventListener("click",()=>{
+    window.location.replace("../register/index.html")
+})
 
 btnRegister.addEventListener("click",()=>{
     window.location.replace("../register/index.html")
