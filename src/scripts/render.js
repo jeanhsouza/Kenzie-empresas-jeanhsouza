@@ -1,5 +1,5 @@
 import { getSectors, getAllCompanies, getCompanies, getDepartment, getAllUsers} from "./requests.js";
-import { createModal, modalEditUser, modalRemoveUser } from "./modal.js";
+import { createModal, modalEditUser, modalRemoveUser, modalEditDepartment ,modalRemoveDepartament} from "./modal.js";
 
 export async function renderOptions(){
     const sectors = await getSectors()
@@ -12,12 +12,11 @@ export async function renderOptions(){
     })
 }
 
-export async function renderOptionsCompanies(){
-    const departSelect = document.querySelector(".departSelect")
+export async function renderOptionsCompanies(actualSelect){
     const companies = await getAllCompanies()
 
     companies.forEach(elem =>{
-        departSelect.insertAdjacentHTML("beforeend", `
+        actualSelect.insertAdjacentHTML("beforeend", `
         <option value="${elem.uuid}">${elem.name}</option>
         `)
     })
@@ -74,13 +73,13 @@ export async function renderDepartments(uuid){
         const departDelete = document.createElement("img");
 
         departItem.classList = "departItem bg-grey7 flex flex-col gap3 pad-2";
-        departItemTitle.classList = "departItemTitle"
+        departItemTitle.classList = "departItemTitle font3"
         departDescription.classList = "departDescription"
         departCompanyName.classList = "departCompanyName"
-        departNav.classList = "departNav"
-        departView.classList = "departView"
-        departEdit.classList = "departEdit"
-        departDelete.classList = "departDelete"
+        departNav.classList = "departNav flex justify-center gap2"
+        departView.classList = "departView icon"
+        departEdit.classList = "departEdit icon"
+        departDelete.classList = "departDelete icon"
 
         departItemTitle.innerText = elem.name;
         departDescription.innerText = elem.description;
@@ -94,11 +93,11 @@ export async function renderDepartments(uuid){
         })
 
         departEdit.addEventListener("click", ()=>{
-            createModal()
+            createModal(modalEditDepartment(elem))
         })
 
         departDelete.addEventListener("click", ()=>{
-            createModal()
+            createModal(modalRemoveDepartament(elem))
         })
 
         departNav.append(departView,departEdit,departDelete);
@@ -135,39 +134,43 @@ export async function renderAllUsers(){
             }
         }
 
-        const userItem = document.createElement("li");
-        const userItemTitle = document.createElement("h3");
-        const userDescription = document.createElement("p");
-        const userCompanyName = document.createElement("p");
-        const userNav = document.createElement("div");
-        const userEdit = document.createElement("img");
-        const userDelete = document.createElement("img");
+        if(elem.username != "ADMIN"){
+            const userItem = document.createElement("li");
+            const userItemTitle = document.createElement("h3");
+            const userDescription = document.createElement("p");
+            const userCompanyName = document.createElement("p");
+            const userNav = document.createElement("div");
+            const userEdit = document.createElement("img");
+            const userDelete = document.createElement("img");
 
-        userItem.classList = "userItem bg-grey7 flex flex-col gap3 pad-2";
-        userItemTitle.classList = "userItemTitle";
-        userDescription.classList = "userDescription";
-        userCompanyName.classList = "userCompanyName";
-        userNav.classList = "userNav";
-        userEdit.classList = "userEdit";
-        userDelete.classList = "userDelete";
+            userItem.classList = "userItem bg-grey7 flex flex-col gap3 pad-2";
+            userItemTitle.classList = "userItemTitle font3";
+            userDescription.classList = "userDescription";
+            userCompanyName.classList = "userCompanyName";
+            userNav.classList = "userNav flex justify-center gap2";
+            userEdit.classList = "userEdit icon";
+            userDelete.classList = "userDelete icon";
 
-        userItemTitle.innerText = elem.username;
-        userDescription.innerText = elem.professional_level;
-        userCompanyName.innerText = verifyCompany();
-        userEdit.src = "../../assets/img/pen_blue.svg";
-        userDelete.src = "../../assets/img/trash.svg";
+            userItemTitle.innerText = elem.username;
+            userDescription.innerText = elem.professional_level;
+            userCompanyName.innerText = verifyCompany();
+            userEdit.src = "../../assets/img/pen_blue.svg";
+            userDelete.src = "../../assets/img/trash.svg";
 
-        userEdit.addEventListener("click", ()=>{
-            createModal(modalEditUser(elem.uuid))
-        })
+            userEdit.addEventListener("click", ()=>{
+                createModal(modalEditUser(elem.uuid))
+            })
 
-        userDelete.addEventListener("click", ()=>{
-            createModal(modalRemoveUser(elem))
-        })
+            userDelete.addEventListener("click", ()=>{
+                createModal(modalRemoveUser(elem))
+            })
 
-        userNav.append(userEdit,userDelete);
-        userItem.append(userItemTitle,userDescription,userCompanyName,userNav)
-        userList.append(userItem);
+            userNav.append(userEdit,userDelete);
+            userItem.append(userItemTitle,userDescription,userCompanyName,userNav)
+            userList.append(userItem);
+        }
+
+        
 
     //     userList.insertAdjacentHTML("beforeend",`
     //     <li class="userItem bg-grey7">

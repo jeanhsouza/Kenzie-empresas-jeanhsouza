@@ -175,3 +175,59 @@ export async function deleteUsers(uuid){
         
     }
 }
+
+export async function createDepartament(body){
+    const token = localStorage.getItem("@kenzieEmpresas:tokenAdmin")
+    const request = await fetch (`${baseURL}/departments`,{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(body)
+      })
+
+    try{
+        const response = await request.json()
+        return response
+    }catch{
+        
+    }
+}
+
+export async function editDepartament(body,elem){
+    const token = localStorage.getItem("@kenzieEmpresas:tokenAdmin")
+    const request = await fetch (`${baseURL}/departments/${elem.uuid}`,{
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(body)
+      })
+
+    try{
+        const response = await request.json()
+        return response
+    }catch{
+        
+    }
+}
+
+export async function deleteDepartment(uuid){
+    const token = localStorage.getItem("@kenzieEmpresas:tokenAdmin")
+    const request = await fetch (`${baseURL}/departments/${uuid}`,{
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        }
+      })
+
+    try{
+        const response = await request.json()
+        return response
+    }catch{
+        
+    }
+}

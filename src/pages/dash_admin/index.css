@@ -25,6 +25,20 @@
     border-bottom: 1px solid var(--brand100);
 }
 
+.icon{
+    cursor: pointer;  
+    opacity: 50%;
+    
+}
+
+.icon:hover{
+    opacity: 100%;     
+}
+
+.divTextarea{
+    resize: none;
+}
+
 
 
 @media (min-width: 900px){
