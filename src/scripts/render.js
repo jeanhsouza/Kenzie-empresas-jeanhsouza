@@ -1,5 +1,5 @@
-import { getSectors, getAllCompanies, getCompanies, getDepartment, getAllUsers} from "./requests.js";
-import { createModal, modalEditUser, modalRemoveUser, modalEditDepartment ,modalRemoveDepartament} from "./modal.js";
+import { getSectors, getAllCompanies, getCompanies, getDepartment, getAllUsers, getUsersUnemployed, fireUser} from "./requests.js";
+import { createModal, modalEditUser, modalRemoveUser, modalEditDepartment ,modalRemoveDepartament, modalViewDepartament} from "./modal.js";
 
 export async function renderOptions(){
     const sectors = await getSectors()
@@ -18,6 +18,16 @@ export async function renderOptionsCompanies(actualSelect){
     companies.forEach(elem =>{
         actualSelect.insertAdjacentHTML("beforeend", `
         <option value="${elem.uuid}">${elem.name}</option>
+        `)
+    })
+}
+
+export async function renderUsersUnemployed(actualSelect){
+    const users = await getUsersUnemployed()
+
+    users.forEach(elem =>{
+        actualSelect.insertAdjacentHTML("beforeend", `
+        <option value="${elem.uuid}">${elem.username}</option>
         `)
     })
 }
@@ -89,7 +99,7 @@ export async function renderDepartments(uuid){
         departDelete.src = "../../assets/img/trash.svg";
 
         departView.addEventListener("click", ()=>{
-            createModal()
+            createModal(modalViewDepartament(elem))
         })
 
         departEdit.addEventListener("click", ()=>{
@@ -121,16 +131,19 @@ export async function renderDepartments(uuid){
 
 export async function renderAllUsers(){
     const userList = document.querySelector(".userList");
-    const users = await getAllUsers();
+    const users = await getAllUsers(); 
+    const departament = await getDepartment()
+        
+    users.forEach (async (elem) => {       
 
-    users.forEach(elem => {
-
-        function verifyCompany(){
+        async function verifyCompany(){
             if(elem.department_uuid == null){
                 return "Desempregado"
             }
             else{
-                return elem.department_uuid
+                const departament = await getDepartment()
+                const departamentfilter = departament.filter(item => item.uuid == elem.department_uuid )
+                return departamentfilter[0].companies.name
             }
         }
 
@@ -153,7 +166,7 @@ export async function renderAllUsers(){
 
             userItemTitle.innerText = elem.username;
             userDescription.innerText = elem.professional_level;
-            userCompanyName.innerText = verifyCompany();
+            userCompanyName.innerText = await verifyCompany();
             userEdit.src = "../../assets/img/pen_blue.svg";
             userDelete.src = "../../assets/img/trash.svg";
 
@@ -183,5 +196,52 @@ export async function renderAllUsers(){
     //         </div>
     //     </li>
     // `)
+    })
+}
+
+export async function renderUsersSameDepartament(elem,actualList){
+    const users = await getAllUsers();
+    const usersfilter = users.filter(element => element.department_uuid == elem.uuid)
+
+    usersfilter.forEach(user => {        
+
+        const divItem = document.createElement("li")
+            const itemTitle = document.createElement("h3");
+            const itemLevel = document.createElement("p")
+            const itemCompany = document.createElement("p")
+            const divItemButton = document.createElement("div")
+            const itemButton = document.createElement("button")
+
+            divItem.classList = "divItem bg-grey7 pad-1"
+            itemTitle.classList = "itemTitle"
+            itemLevel.classList = "itemLevel"
+            itemCompany.classList = "itemCompany"
+            divItemButton.classList = "divItemButton"
+            itemButton.classList = "itemButton"
+
+            itemTitle.innerText = user.username
+            itemLevel.innerText = user.professional_level
+            itemCompany.innerText = elem.companies.name
+            itemButton.innerText = "Desligar"
+
+            itemButton.addEventListener("click", async()=>{
+                const divList = document.querySelector(".divList")
+                const contSelect = document.querySelector(".contSelect")
+                const selectDefault = document.querySelector(".selectDefault")
+
+                await fireUser(user.uuid);
+                divList.innerHTML = ""
+                contSelect.innerHTML= ""
+                contSelect.appendChild(selectDefault)
+                renderUsersUnemployed(contSelect)
+                renderUsersSameDepartament(elem,divList)
+            })
+            
+            divItem.append(itemTitle,itemLevel,itemCompany,divItemButton)
+            divItemButton.appendChild(itemButton)
+            
+            actualList.appendChild(divItem)           
+
+   
     })
 }

@@ -102,7 +102,6 @@ async function isAdmin(token){
       }
 }
 
-
 export async function getDepartment (uuid = ""){
     const token = localStorage.getItem("@kenzieEmpresas:tokenAdmin")
     const request = await fetch (`${baseURL}/departments/${uuid}`,{
@@ -218,6 +217,61 @@ export async function deleteDepartment(uuid){
     const token = localStorage.getItem("@kenzieEmpresas:tokenAdmin")
     const request = await fetch (`${baseURL}/departments/${uuid}`,{
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        }
+      })
+
+    try{
+        const response = await request.json()
+        return response
+    }catch{
+        
+    }
+}
+
+export async function getUsersUnemployed (){
+    const token = localStorage.getItem("@kenzieEmpresas:tokenAdmin")
+    const request = await fetch (`${baseURL}/admin/out_of_work`,{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+    try{
+        const response = await request.json()
+        return response
+    }catch{
+        
+    }
+}
+
+export async function hireUser(body){
+    const token = localStorage.getItem("@kenzieEmpresas:tokenAdmin")
+    const request = await fetch (`${baseURL}/departments/hire/`,{
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(body)
+      })
+
+    try{
+        const response = await request.json()
+        return response
+    }catch{
+        
+    }
+}
+
+export async function fireUser(iduser){
+    const token = localStorage.getItem("@kenzieEmpresas:tokenAdmin")
+    const request = await fetch (`${baseURL}/departments/dismiss/${iduser}`,{
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

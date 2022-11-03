@@ -1,5 +1,5 @@
-import { editUsers, deleteUsers, createDepartament, editDepartament, deleteDepartment} from "./requests.js";
-import { renderAllUsers, renderDepartments, renderOptionsCompanies} from "./render.js";
+import { editUsers, deleteUsers, createDepartament, editDepartament, deleteDepartment , hireUser} from "./requests.js";
+import { renderAllUsers, renderDepartments, renderOptionsCompanies, renderUsersUnemployed, renderUsersSameDepartament} from "./render.js";
 
 export function createModal(modalToRender){
     const body = document.querySelector("body");
@@ -14,6 +14,7 @@ export function createModal(modalToRender){
 
     modalClose.innerText = "X";
     modalClose.addEventListener("click",()=>{
+        window.location.reload()
         modalBg.remove()
     })
 
@@ -94,6 +95,7 @@ export function modalRemoveUser(elem){
     const divTitle = document.createElement("h1")
     const divBtn = document.createElement("button")
 
+    modalDiv.classList = "modalDiv"
     divTitle.classList = "divTitle font2 mg-top1 mg-bot1"
 
     divTitle.innerText = `Realmente deseja remover o usuário ${elem.username}?`
@@ -216,6 +218,7 @@ export function modalRemoveDepartament(elem){
     const divTitle = document.createElement("h1")
     const divBtn = document.createElement("button")
 
+    modalDiv.classList = "modalDiv"
     divTitle.classList = "divTitle font2 mg-top1 mg-bot1"
 
     divTitle.innerText = `Realmente deseja deletar o Departamento ${elem.name} e demitir seus funcionários??`
@@ -236,3 +239,60 @@ export function modalRemoveDepartament(elem){
     return modalDiv
 }
 
+export function modalViewDepartament(elem){
+    const modalDivView = document.createElement("div")
+    const divTitle = document.createElement("h1")
+    const divHeader = document.createElement("div")
+    const headerText = document.createElement("div")
+    const textDescription = document.createElement("p")
+    const textCompany = document.createElement("p")
+    const headerCont = document.createElement("div")
+    const contSelect = document.createElement("select")
+    const selectDefault = document.createElement("option")
+    const contBtn = document.createElement("button")
+    const divList = document.createElement("ul")  
+
+    modalDivView.classList = "modalDivView"
+    divTitle.classList = "divTitle font2 mg-bot1"
+    divHeader.classList = "divHeader flex"
+    headerText.classList = "headerText"
+    textDescription.classList = "textDescription"
+    textCompany.classList = "textCompany"
+    headerCont.classList = "headerCont flex flex-col"
+    contSelect.classList = "contSelect"
+    selectDefault.classList = "selectDefault"
+    contBtn.classList = "contBtn"
+    divList.classList = "divList bg-grey6 pad-1 flex flex-col wrap gap2"    
+
+    divTitle.innerText = elem.name
+    textDescription.innerText = elem.description
+    textCompany.innerText = elem.companies.name
+    selectDefault.innerText = "Selecionar usuário"
+    selectDefault.value = "";
+    contBtn.innerText = "Contratar"   
+
+    contSelect.appendChild(selectDefault)
+    renderUsersUnemployed(contSelect)
+    renderUsersSameDepartament(elem,divList)
+
+    contBtn.addEventListener("click", async()=>{
+        const body = {
+            user_uuid:contSelect.value,
+            department_uuid: elem.uuid
+        }
+
+        await hireUser(body)
+        divList.innerHTML = ""
+        contSelect.innerHTML= ""
+        contSelect.appendChild(selectDefault)
+        renderUsersUnemployed(contSelect)
+        renderUsersSameDepartament(elem,divList)
+    })
+
+    divHeader.append(headerText,headerCont)
+    headerText.append(textDescription,textCompany)
+    headerCont.append(contSelect,contBtn)
+    modalDivView.append(divTitle,divHeader,divList)
+
+    return modalDivView
+}

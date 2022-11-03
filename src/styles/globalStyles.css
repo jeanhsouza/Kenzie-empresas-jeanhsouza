@@ -23,7 +23,7 @@ a{
   text-decoration: none;
 }
 
-body, input::placeholder, button {
+body, input::placeholder, button, textarea {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
