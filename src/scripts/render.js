@@ -1,4 +1,4 @@
-import { getSectors, getAllCompanies, getCompanies, getDepartment, getAllUsers, getUsersUnemployed, fireUser} from "./requests.js";
+import { getSectors, getAllCompanies, getCompanies, getDepartment, getAllUsers, getUsersUnemployed, fireUser, getInfoUser, getInfoCoworkers, getInfoCompany} from "./requests.js";
 import { createModal, modalEditUser, modalRemoveUser, modalEditDepartment ,modalRemoveDepartament, modalViewDepartament} from "./modal.js";
 
 export async function renderOptions(){
@@ -244,4 +244,82 @@ export async function renderUsersSameDepartament(elem,actualList){
 
    
     })
+}
+
+export async function renderInfoUser(actualList){
+
+    const infoUser = await getInfoUser()
+
+    async function verifyJob(){
+        const infoCompany = document.querySelector(".infoCompany");
+
+        if (infoUser.department_uuid != null){
+            await renderInfoCoworkers()
+        }
+        else{
+            infoCompany.insertAdjacentHTML("beforeend",`
+            <div class="unemployed mg-top1 mg-bot1 bg-grey6 flex items-center justify-center">
+                <span class="unemployedText font1">Você ainda não foi contratado</span>
+            </div>
+            `)
+        }
+    }
+
+    async function verifyKindWork(){
+        if(infoUser.kind_of_work == null){
+            infoUser.kind_of_work = ""
+        }
+
+        if(infoUser.professional_level == null){
+            infoUser.professional_level = ""
+        }
+
+
+    }
+
+    verifyKindWork()
+
+    actualList.insertAdjacentHTML("afterbegin",`
+    <div class="boxUser flex flex-col gap2" id=${infoUser.uuid}>
+        <h1 class="username font2">${(infoUser.username).toUpperCase()}</h1>
+        <div class="userDetails flex gap0">
+            <p class="userMail">Email: ${infoUser.email}</p>
+            <p class="userLevel">${infoUser.professional_level}</p>
+            <p class="userWork">${infoUser.kind_of_work}</p>
+        </div>
+    </div>
+    `)
+
+    verifyJob()
+}
+
+export async function renderInfoCoworkers(){
+    const infoCompanyBox = document.querySelector(".infoCompany"); 
+    const infoCompany = await getInfoCompany()   
+    const infoCowokers = await getInfoCoworkers()
+    const coworkers = await infoCowokers[0].users
+    const infoUser = await getInfoUser()
+
+    infoCompanyBox.insertAdjacentHTML("beforeend",`
+    <div class="employed bg-grey6 mg-top1 mg-bot1 w-full">
+        <h1 class="infoCompanyTitle text-grey7 font2">${infoCompany.name} - ${infoCowokers[0].name}</h1>
+        <ul class="coworkersList flex w-full pad-1 gap2">
+            
+        </ul>
+    </div>
+    `)
+    const coworkersList = document.querySelector(".coworkersList")
+
+    coworkers.forEach(user => {
+        if(infoUser.username != user.username){
+            coworkersList.insertAdjacentHTML("beforeend",`
+            <li class="coworkersItem bg-grey7 pad-2">
+                <p class="coworkersTitle font4-1">${user.username}</p>
+                <p class="coworkersText font4">${user.professional_level}</p>
+            </li>
+            `)
+        }
+    })
+
+    // 
 }

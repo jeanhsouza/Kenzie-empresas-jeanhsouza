@@ -39,6 +39,10 @@
         display: none;
     }
 
+    .navBoxHeader{
+        display: flex;
+    }
+
     .boxRegister{
         width: 506px;
         height: 519px;

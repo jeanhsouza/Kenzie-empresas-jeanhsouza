@@ -1,4 +1,5 @@
 import { register } from "../../scripts/requests.js";
+import { dropdown } from "../../scripts/dropdown.js";
 
 const btnHome = document.querySelector(".btnHome");
 const btnLogin = document.querySelector(".btnLogin")
@@ -36,4 +37,5 @@ async function eventRegister(){
     })
 }
 
+dropdown()
 eventRegister()

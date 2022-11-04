@@ -1,4 +1,5 @@
 import { renderOptions, renderAllCompanies, renderCompanies } from "../../scripts/render.js";
+import { dropdown } from "../../scripts/dropdown.js";
 
 const selectSectors = document.querySelector(".selectSectors");
 const btnlogin = document.querySelector(".btnlogin");
@@ -16,5 +17,6 @@ btnlogin.addEventListener("click",()=>{
     window.location.replace("../login/index.html")
 })
 
+dropdown()
 await renderOptions()
 await renderAllCompanies()

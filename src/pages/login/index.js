@@ -1,4 +1,5 @@
 import { login } from "../../scripts/requests.js";
+import { dropdown } from "../../scripts/dropdown.js";
 
 const btnHome = document.querySelector(".btnHome");
 const btnRegister = document.querySelector(".btnRegister")
@@ -15,6 +16,7 @@ btnRegister.addEventListener("click",()=>{
 btnHome.addEventListener("click",()=>{
     window.location.replace("../home/index.html")
 })
+
 
 async function eventLogin (){    
     const form = document.querySelector(".boxForm");
@@ -44,4 +46,5 @@ async function eventLogin (){
     
 }
 
+dropdown()
 eventLogin ()

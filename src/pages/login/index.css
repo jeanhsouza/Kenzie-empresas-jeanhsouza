@@ -39,6 +39,10 @@
         display: none;
     }
 
+    .navBoxHeader{
+        display: flex;
+    }
+
     .boxLogin{
         width: 506px;
         height: fit-content;

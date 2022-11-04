@@ -1,0 +1,26 @@
+.toastContainer{
+    position: fixed;
+    bottom: 28px;
+    right: 17px;
+    width: fit-content;
+    height: 100px;
+    padding: 21px 32px;    
+    box-shadow: 0px 4px 30px -12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    animation: toastMove 3000ms ease-in forwards;
+}
+
+.sucess{
+    background-color: var(--sucess100);
+}
+
+.fail{
+    background-color: var(--alert100);
+}
+
+@keyframes toastMove{
+    0%{right: -500px; bottom: 28px}
+    25%{right: 17px; bottom: 28px}
+    50%{right: 17px; bottom: 28px}
+    100%{right: -500px; bottom: 28px}
+}

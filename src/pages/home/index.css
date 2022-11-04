@@ -56,6 +56,10 @@
         display: none;
     }
 
+    .navBoxHeader{
+        display: flex;
+    }
+
     .mainHomePage{
         max-height: 743px;
     }

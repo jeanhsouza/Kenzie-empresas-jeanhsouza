@@ -1,5 +1,5 @@
-import { editUsers, deleteUsers, createDepartament, editDepartament, deleteDepartment , hireUser} from "./requests.js";
-import { renderAllUsers, renderDepartments, renderOptionsCompanies, renderUsersUnemployed, renderUsersSameDepartament} from "./render.js";
+import { editUsers, deleteUsers, createDepartament, editDepartament, deleteDepartment , hireUser, editInfoUser} from "./requests.js";
+import { renderAllUsers, renderDepartments, renderOptionsCompanies, renderUsersUnemployed, renderUsersSameDepartament, renderInfoUser} from "./render.js";
 
 export function createModal(modalToRender){
     const body = document.querySelector("body");
@@ -295,4 +295,64 @@ export function modalViewDepartament(elem){
     modalDivView.append(divTitle,divHeader,divList)
 
     return modalDivView
+}
+
+export async function modalEditLogUser(){
+    const modalDiv = document.createElement("div");
+    const divTitle = document.createElement("h1");
+    const divForm = document.createElement("form")
+    const divInputName = document.createElement("input");
+    const divInputEmail = document.createElement("input");
+    const divInputPassword = document.createElement("input");
+    const divFormBtn =  document.createElement("button");
+    
+    modalDiv.classList = "modalDiv flex flex-col bg-grey7"
+    divTitle.classList = "divTitle mg-bot1 font2"
+    divForm.classList = "divForm flex flex-col gap2"
+    divInputName.classList = "divInputName input1"
+    divInputEmail.classList = "divInputEmail input1"
+    divInputPassword.classList = "divInputPassword input1"
+    divInputName.id = "username"
+    divInputEmail.id = "email"
+    divInputPassword.id = "password"
+    
+    divTitle.innerText = "Editar Perfil";
+    divFormBtn.innerText = "Editar Perfil"
+    divInputName.placeholder = "Seu nome"
+    divInputEmail.placeholder = "Seu e-mail" 
+    divInputEmail.type = "email"    
+    divInputPassword.placeholder = "Sua senha" 
+    divInputPassword.type = "password"    
+    divFormBtn.type = "Submit"
+
+
+    divFormBtn.addEventListener("click",async(e)=>{
+        const modalBg = document.querySelector(".modalBg")
+        const elements = [...divForm.elements];
+        const divInfoUser = document.querySelector(".infoUser")
+        
+
+        e.preventDefault()
+
+        const body = {}
+
+        elements.forEach((elem)=>{
+            
+            if (elem.tagName == "INPUT" ){
+                body[elem.id] = elem.value;
+                
+            }             
+
+        })
+
+        await editInfoUser(body)
+        window.location.reload()
+        modalBg.remove()
+    })
+
+    modalDiv.append(divTitle,divForm);
+    divForm.append(divInputName,divInputEmail,divInputPassword,divFormBtn);
+
+    return modalDiv
+
 }

@@ -12,6 +12,36 @@
     height: 15px;
 }
 
+.btnEditUser{
+    cursor: pointer;
+    opacity: 50%;
+}
+
+.btnEditUser:hover{
+    opacity: 100%;
+}
+
+.infoUser{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.unemployed,.employed{
+    width: 1178px;
+    height: 467px;
+    border: 1px solid var(--gray400);
+}
+
+.infoCompanyTitle{
+    text-align: center;
+    padding: 18px;
+    background-color: var(--brand100);
+}
+
+.coworkersItem{
+    width: 318px;
+    height: 76px;
+    border: 1px solid var(--brand100);
+}
 
 
 @media (min-width: 900px){
