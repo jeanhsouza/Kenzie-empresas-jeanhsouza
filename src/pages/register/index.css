@@ -7,6 +7,16 @@
     padding-bottom: 25px;
 }
 
+.navBoxHeader{
+    padding: 18px;
+    width: 100%;
+    background-color: var(--gray700);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 70px;
+    left: 0px;
+}
+
 .LogoImg{
     width: 142px;
     height: 15px;
@@ -37,6 +47,14 @@
 
     .boxHamb{
         display: none;
+    }
+
+    .navBoxHeader{
+        display: flex;
+        position: static;
+        padding: 0px;
+        width: fit-content;
+        border-bottom:none;
     }
 
     .boxRegister{

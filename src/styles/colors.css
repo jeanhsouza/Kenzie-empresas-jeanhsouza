@@ -18,6 +18,10 @@
     background-color: var(--gray300);
 }
 
+.bg-grey5{
+    background-color: var(--gray500);
+}
+
 .bg-grey7{
     background-color: var(--gray700);
 }
