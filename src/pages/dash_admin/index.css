@@ -7,6 +7,18 @@
     padding-bottom: 25px;
 }
 
+.btnCreate{
+    cursor:pointer;
+    padding: 10px 30px;
+    border: 1px solid var(--brand100);
+    background-color: var(--brand100);
+    color: var(--gray700);
+}
+
+.btnCreate:hover{
+    opacity: 80%;
+}
+
 .LogoImg{
     width: 142px;
     height: 15px;
@@ -24,6 +36,24 @@
     height: 196px;
     border-bottom: 1px solid var(--brand100);
 }
+
+.icon{
+    cursor: pointer;  
+    opacity: 50%;
+    
+}
+
+.icon:hover{
+    opacity: 100%;     
+}
+
+
+.divTextarea{
+    resize: none;
+    height: 113px;
+}
+
+
 
 
 

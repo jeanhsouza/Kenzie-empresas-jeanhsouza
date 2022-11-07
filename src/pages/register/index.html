@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="../../styles/sizes.css">
         <link rel="stylesheet" href="../../styles/inputs.css">
         <link rel="stylesheet" href="../../styles/fonts.css">
+        <link rel="stylesheet" href="../../styles/modal.css">
+        <link rel="stylesheet" href="../../styles/toast.css">
         <link rel="stylesheet" href="index.css">
         <script defer type="module" src="./index.js"></script>
         <title>Kenzie Empresas - HomePage</title>
@@ -23,9 +25,9 @@
                     <img src="../../assets/img/logo.svg" alt="" class="LogoImg">
                     <img src="../../assets/img/img_hamb.svg" alt="" class="boxHamb">                    
                 </div>                
-                <nav class="navBoxHeader flex justify-center gap2">
-                    <button class="btnHome btn">Home</button>
-                    <button class="btnLogin btn">Login</button>
+                <nav class="navBoxHeader none justify-center gap2">
+                    <button class="btnHome btn font3-1">Home</button>
+                    <button class="btnLogin btn font3-1">Login</button>
                 </nav>  
             </div>            
         </header>
@@ -33,18 +35,18 @@
             <section class="boxRegister mg-top1 mg-bot1 pad-1 bg-grey7">
                 <h2 class="boxTitle font1 mg-bot1">Cadastre-se</h2>
                 <form class="boxForm flex flex-col gap3">
-                    <input type="text" id="username" class="input1" placeholder="Seu nome" required>                    
-                    <input type="email" id="email" class="input1" placeholder="Seu e-mail" required>
-                    <input type="password" id="password" class="input1" placeholder="Sua senha" required>                    
-                    <select id="professional_level" class="selectRegister input1" placeholder="Nível profissional" required>
+                    <input type="text" id="username" class="input1 font3-1-0" placeholder="Seu nome" required>                    
+                    <input type="email" id="email" class="input1 font3-1-0" placeholder="Seu e-mail" required>
+                    <input type="password" id="password" class="input1 font3-1-0" placeholder="Sua senha" required>                    
+                    <select id="professional_level" class="selectRegister input1 text-grey4 font3-1-0" placeholder="Nível profissional" required>
                         <option value="">Nível profissional</option>
                         <option value="estágio">Estágio</option>
                         <option value="júnior">Júnior</option>
                         <option value="pleno">Pleno</option>
                         <option value="sênior">Sênior</option>
                     </select>
-                    <button class="AcessRegister btn" type="submit" >Cadastre-se</button>
-                    <a href="../home/index.html" class="AcessHome btn">Retornar</a>
+                    <button class="AcessRegister btn font3-1" type="submit" >Cadastre-se</button>
+                    <a href="../home/index.html" class="AcessHome btn font3-1">Retornar</a>
                 </form>
             </section>
             

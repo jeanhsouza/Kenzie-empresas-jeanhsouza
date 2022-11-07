@@ -1,15 +1,16 @@
 .btn{
+    cursor:pointer;
     padding: 10px 36px;
     border: 1px solid var(--brand100);
-    color: var(--brand100);
-    background-color: transparent;
+    background-color: var(--brand100);
+    color: var(--gray700);
 }
 
 .btn:hover{
     padding: 10px 36px;
     border: 1px solid var(--brand100);
-    background-color: var(--brand100);
-    color: var(--gray700);
+    color: var(--brand100);
+    background-color: transparent;
 }
 
 .btn2{
@@ -20,13 +21,16 @@
 }
 
 .btn3{
+    cursor:pointer;
     padding: 10px 36px;
+    width: fit-content;
     border: 1px solid var(--sucess100);
     background-color: var(--sucess100);
     color: var(--gray700);
 }
 
 .btn4{
+    cursor:pointer;
     padding: 10px 36px;
     border: 1px solid var(--alert100);
     background-color: transparent;

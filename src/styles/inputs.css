@@ -12,6 +12,14 @@
     background: var(--gray800);
 }
 
+.large{
+    width: 450px;
+}
+
+.radius{
+    border-radius: 1rem;
+}
+
 .errorInput{
     outline: 1px solid var(--alert100);
 }

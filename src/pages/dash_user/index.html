@@ -12,9 +12,11 @@
         <link rel="stylesheet" href="../../styles/sizes.css">
         <link rel="stylesheet" href="../../styles/inputs.css">
         <link rel="stylesheet" href="../../styles/fonts.css">
+        <link rel="stylesheet" href="../../styles/modal.css">
+        <link rel="stylesheet" href="../../styles/toast.css">
         <link rel="stylesheet" href="index.css">
         <script defer type="module" src="./index.js"></script>
-        <title>Kenzie Empresas - HomePage</title>
+        <title>Kenzie Empresas - Dashboard's User</title>
     </head>
     <body>
         <header class="headerHomePage">
@@ -23,13 +25,30 @@
                     <img src="../../assets/img/logo.svg" alt="" class="LogoImg">                 
                 </div>                
                 <nav class="navBoxHeader flex justify-center gap2">
-                    <button class="btnHome btn">Home</button>
-                    <button class="btnLogin btn">Login</button>
+                    <button class="btnLogout btn font3-1">Logout</button>
                 </nav>  
             </div>            
         </header>
-        <main class="mainRegister flex items-center justify-center">
-            <h1>Estou na página de Usuário</h1>
+        <main class="mainDashUser flex flex-col container">
+            <section class="infoUser mg-top1 pad-1 flex items-center justify-between">
+               
+                <img src="../../assets/img/pen_blue.svg" alt="" class="btnEditUser">
+            </section>
+            <section class="infoCompany w-full flex justify-center items-center">
+                <!-- <div class="unemployed">
+                    <h1 class="unemployedText">Você ainda não foi contratado</h1>
+                </div>
+                <div class="employed">
+                    <h1 class="infoCompanyTitle">Company Name - Department Name</h1>
+                    <ul class="coworkersList">
+                        <li class="coworkersItem">
+                            <p class="coworkersTitle">Nome do colega</p>
+                            <p class="coworkersText">Senior</p>
+                        </li>
+                    </ul>
+                </div> -->
+
+            </section>
         </main>
     </body>
 </html>
