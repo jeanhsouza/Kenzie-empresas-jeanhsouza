@@ -212,12 +212,12 @@ export async function renderUsersSameDepartament(elem,actualList){
             const divItemButton = document.createElement("div")
             const itemButton = document.createElement("button")
 
-            divItem.classList = "divItem bg-grey7 pad-1"
-            itemTitle.classList = "itemTitle"
-            itemLevel.classList = "itemLevel"
-            itemCompany.classList = "itemCompany"
-            divItemButton.classList = "divItemButton"
-            itemButton.classList = "itemButton"
+            divItem.classList = "divItem bg-grey7 pad-2 flex flex-col gap4"
+            itemTitle.classList = "itemTitle font3"
+            itemLevel.classList = "itemLevel font3-1-0"
+            itemCompany.classList = "itemCompany font3-1-0"
+            divItemButton.classList = "divItemButton flex justify-center"
+            itemButton.classList = "itemButton btn4 font3-1"
 
             itemTitle.innerText = user.username
             itemLevel.innerText = user.professional_level

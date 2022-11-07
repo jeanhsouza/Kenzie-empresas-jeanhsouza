@@ -47,6 +47,14 @@
     border-bottom: 1px solid var(--brand100);
 }
 
+.itemTag{
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--brand100);
+    color: var(--brand100);
+}
+
 .listSector{
     overflow-y: auto;
     padding: 25px;

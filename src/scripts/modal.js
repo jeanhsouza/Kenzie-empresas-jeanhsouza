@@ -48,10 +48,11 @@ export function modalEditUser(uuid){
     `)
 
     modalDiv.classList = "modalDiv flex flex-col bg-grey7"
-    divTitle.classList = "divTitle mg-bot1 font2"
+    divTitle.classList = "divTitle mg-bot1 font1"
     divForm.classList = "divForm flex flex-col gap2"
-    divSelectWork.classList = "divSelectWork input1"
-    divSelectLevel.classList = "divSelectLevel input1"
+    divSelectWork.classList = "divSelectWork input1 font3-1-0"
+    divSelectLevel.classList = "divSelectLevel input1 font3-1-0"
+    divFormBtn.classList = "divFormBtn btn font3-1"
     divSelectWork.id = "kind_of_work"
     divSelectLevel.id = "professional_level"
     
@@ -95,8 +96,9 @@ export function modalRemoveUser(elem){
     const divTitle = document.createElement("h1")
     const divBtn = document.createElement("button")
 
-    modalDiv.classList = "modalDiv"
-    divTitle.classList = "divTitle font2 mg-top1 mg-bot1"
+    modalDiv.classList = "modalDiv flex flex-col items-center"
+    divTitle.classList = "divTitle font2 mg-top1 mg-bot1 text-center"
+    divBtn.classList = "divBtn w-70 btn3 font3-1"
 
     divTitle.innerText = `Realmente deseja remover o usuário ${elem.username}?`
     divBtn.innerText = "Deletar"
@@ -127,11 +129,12 @@ export async function modalCreateDepartament(uuid){
     const divFormBtn =  document.createElement("button");
     
     modalDiv.classList = "modalDiv flex flex-col bg-grey7"
-    divTitle.classList = "divTitle mg-bot1 font2"
+    divTitle.classList = "divTitle mg-bot1 font1"
     divForm.classList = "divForm flex flex-col gap2"
-    divInputDepartName.classList = "divInputDepartName input1"
-    divInputDepartDescription.classList = "divInputDepartDescription input1"
-    divSelectCompany.classList = "divSelectCompany input1"
+    divInputDepartName.classList = "divInputDepartName input1 font3-1-0"
+    divInputDepartDescription.classList = "divInputDepartDescription input1 font3-1-0"
+    divSelectCompany.classList = "divSelectCompany input1 font3-1-0"
+    divFormBtn.classList = "divFormBtn btn font3-1"
     divInputDepartName.id = "name"
     divInputDepartDescription.id = "description"
     divSelectCompany.id = "company_uuid"
@@ -187,9 +190,11 @@ export function modalEditDepartment(elem){
     const divButton = document.createElement("button");
     
     modalDiv.classList = "modalDiv flex flex-col bg-grey7"
-    divTitle.classList = "divTitle mg-bot1 font2" 
-    divTextarea.classList = "divTextarea"
+    divTitle.classList = "divTitle mg-bot1 font1" 
+    divTextarea.classList = "divTextarea mg-bot2 pad-2 text-grey4 font3-1-0"
+    divButton.classList = "divButton btn font3"
     divTextarea.id = "description"
+    
 
     divTitle.innerText = "Editar Departamento";
     divTextarea.innerText = elem.description;
@@ -218,10 +223,11 @@ export function modalRemoveDepartament(elem){
     const divTitle = document.createElement("h1")
     const divBtn = document.createElement("button")
 
-    modalDiv.classList = "modalDiv"
-    divTitle.classList = "divTitle font2 mg-top1 mg-bot1"
+    modalDiv.classList = "modalDiv flex flex-col items-center"
+    divTitle.classList = "divTitle font2 mg-top1 mg-bot1 text-center"
+    divBtn.classList = "divBtn btn3 w-70 font3-1"
 
-    divTitle.innerText = `Realmente deseja deletar o Departamento ${elem.name} e demitir seus funcionários??`
+    divTitle.innerText = `Realmente deseja deletar o Departamento ${elem.name} e demitir seus funcionários?`
     divBtn.innerText = "Confirmar"
 
     divBtn.addEventListener("click", async ()=>{
@@ -253,15 +259,15 @@ export function modalViewDepartament(elem){
     const divList = document.createElement("ul")  
 
     modalDivView.classList = "modalDivView"
-    divTitle.classList = "divTitle font2 mg-bot1"
-    divHeader.classList = "divHeader flex"
-    headerText.classList = "headerText"
-    textDescription.classList = "textDescription"
-    textCompany.classList = "textCompany"
-    headerCont.classList = "headerCont flex flex-col"
-    contSelect.classList = "contSelect"
+    divTitle.classList = "divTitle font1 mg-bot1"
+    divHeader.classList = "divHeader mg-bot1 flex justify-between gap2"
+    headerText.classList = "headerText flex flex-col gap3"
+    textDescription.classList = "textDescription font3"
+    textCompany.classList = "textCompany font3"
+    headerCont.classList = "headerCont flex flex-col items-end gap2"
+    contSelect.classList = "contSelect input1 large font3"
     selectDefault.classList = "selectDefault"
-    contBtn.classList = "contBtn"
+    contBtn.classList = "contBtn btn3 font3-1"
     divList.classList = "divList bg-grey6 pad-1 flex flex-col wrap gap2"    
 
     divTitle.innerText = elem.name
@@ -307,11 +313,12 @@ export async function modalEditLogUser(){
     const divFormBtn =  document.createElement("button");
     
     modalDiv.classList = "modalDiv flex flex-col bg-grey7"
-    divTitle.classList = "divTitle mg-bot1 font2"
+    divTitle.classList = "divTitle mg-bot1 font1"
     divForm.classList = "divForm flex flex-col gap2"
     divInputName.classList = "divInputName input1"
     divInputEmail.classList = "divInputEmail input1"
     divInputPassword.classList = "divInputPassword input1"
+    divFormBtn.classList = "divFormBtn btn font3-1"
     divInputName.id = "username"
     divInputEmail.id = "email"
     divInputPassword.id = "password"

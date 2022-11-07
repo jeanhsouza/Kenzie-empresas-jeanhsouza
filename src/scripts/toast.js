@@ -4,7 +4,7 @@ export function toast (status,mensage){
     body.insertAdjacentHTML("beforeend",`
     <div class="toastContainer ${status} flex justify-center">
         <div class="toastHeader flex items-center justify-center gap3">
-        <span class="toastTitle font4-1 text-grey7">${mensage}</span>
+        <span class="toastTitle font3 text-grey7">${mensage}</span>
         </div>
     </div>
     `)

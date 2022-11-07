@@ -22,6 +22,10 @@
     margin-bottom: 45px;
 }
 
+.mg-bot2{
+    margin-bottom: 24px;
+}
+
 .mg-top1{
     margin-top: 45px;
 }
@@ -40,6 +44,10 @@
 
 .gap3{
     gap:12px
+}
+
+.gap4{
+    gap:8px
 }
 
 .radius1{
